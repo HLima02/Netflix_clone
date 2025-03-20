@@ -10,7 +10,7 @@ export default function MainBanner() {
       <div className="banner__txt">
         <h2>Filmes, programas de TV e muito mais ilimitados</h2>
         <p>Assista em qualquer lugar. Cancele quando quiser.</p>
-        <InputSignUp text="Pronto para assistir? Insira seu e-mail para criar ou reiniciar sua assinatura." />
+        <InputSignUp />
       </div>
     </section>
   )

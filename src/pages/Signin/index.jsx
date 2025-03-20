@@ -1,9 +1,14 @@
 import React from 'react'
 
+import Header from '../../components/Header'
+
+import './signin.style.scss'
+
 export default function SignIn() {
   return (
-    <div>
-      <h1>Página de Login</h1>
+    <div className='signin_container'>
+      <Header />
+      
     </div>
   )
 }

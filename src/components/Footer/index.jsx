@@ -72,6 +72,9 @@ export default function Footer() {
             </li>
           </ul>
         </div>
+        <div className='copy'>
+          <p>Desenvolvido por Hiago Lima, &copy;2025</p>
+        </div>
       </div>
     </footer>
   )
