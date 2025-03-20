@@ -1,10 +1,93 @@
 .signin_container {
   background-image: url('../../assets/Hero_Image.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   width: 100%;
   height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .singin_input_box {
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 60px 70px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    max-width: 450px;
+
+    h3 {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      margin-bottom: 30px;
+
+      input {
+        width: 100%;
+        height: 56px;
+        background-color: transparent;
+        border: 1px solid #fff;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 5px 10px;
+        color: #fff;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      button {
+        background-color: #E50914;
+        border: none;
+        width: 100%;
+        height: 42px;
+        color: #fff;
+        font-size: 17px;
+        border-radius: 5px;
+      }
+    }
+
+    .forgot_password {
+      color: #fff;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .link_signup {
+      a {
+        font-weight: bold;
+        color: #fff;
+      }
+    }
+  }
 
   &::after {
     content: '';
-    background-color: linear;
+    background: linear-gradient( rgba(0, 0, 0, 0.8) 10%, rgba(0, 0, 0, 0.65) 30%, rgba(0, 0, 0, 1));
+    position: absolute;
+    width: 100%;
+    height: 101%;
   }
+
+  @media only screen and (max-width: 540px){
+    .singin_input_box {
+      margin: 10px 5%;
+      padding: 40px 40px 60px;
+    }
+  }
+
 }
