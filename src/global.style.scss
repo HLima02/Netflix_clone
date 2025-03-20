@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'netflixSansRegular';
-  src: url('../public/assets/fonts/NetflixSans-Regular.woff2') format('truetype');
+  src: url('./assets/fonts/NetflixSans-Regular.woff2') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -10,10 +10,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'netflixSansRegular', sans-serif;
+  transition: all ease-in 0.2s;
 }
 
 html, body {
   width: 100%;
+  min-height: 380px;
   height: 100vh;
 }
 

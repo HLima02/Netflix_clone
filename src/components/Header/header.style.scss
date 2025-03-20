@@ -1,0 +1,35 @@
+.header__container {
+  width: 100%;
+  max-width: 1200px;
+  height: 92px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5%;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  button {
+    background-color: #E50914;
+    width: 77px;
+    height: 32px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color: #E50914, $alpha: .7);
+    }
+  }
+  
+}
