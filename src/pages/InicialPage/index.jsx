@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import Header from '../../components/Header'
+import MainBanner from '../../components/MainBanner'
 import InputSignUp from '../../components/InputSignUp'
 import AdvantagesInitialPage from '../../components/AdvantagesInitialPage'
 import Footer from '../../components/Footer'
@@ -22,13 +23,7 @@ export default function InicialPage() {
   return (
     <div>
       <Header />
-      <section className='banner'>
-        <div className="banner__txt">
-          <h2>Filmes, programas de TV e muito mais ilimitados</h2>
-          <p>Assista em qualquer lugar. Cancele quando quiser.</p>
-          <InputSignUp text="Pronto para assistir? Insira seu e-mail para criar ou reiniciar sua assinatura." />
-        </div>
-      </section>
+      <MainBanner/>
       
       {Advantage.map((item) => (
         <AdvantagesInitialPage key={item.id}
