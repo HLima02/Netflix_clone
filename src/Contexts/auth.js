@@ -1,9 +1,12 @@
 import { useState, useEffect, createContext } from 'react'
 
-export default function AuthProvider() {
+export const AuthContext = createContext({})
+
+export default function AuthProvider({children}) {
+  const [user, setUser] = useState('teste')
   return (
-    <div>
-      
-    </div>
+    <AuthContext.Provider value={user}>
+      {children}
+    </AuthContext.Provider>
   )
 }
