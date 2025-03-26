@@ -18,7 +18,6 @@ export default function SignIn() {
 
     if(email !== '' & password !== ''){
       await singIn(email, password)
-      toast.success('Login feito')
     } else {
       toast.warning('Preencha todos os campos!')
       return

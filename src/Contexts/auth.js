@@ -17,7 +17,6 @@ export default function AuthProvider({children}) {
     await createUserWithEmailAndPassword(auth, email, password)
     .then(async (value) => {
       let uid = value.user.uid
-      toast.success('Cadastrado')
       console.log(value.user)
       
       await setDoc(doc(db, "users", uid), {
@@ -26,8 +25,18 @@ export default function AuthProvider({children}) {
         email: email,
         uid: uid
       })
-
-      navigate('/profiles')
+      .then(() => {
+        let data = {
+          nome: name,
+          telefone: tel,
+          email: email,
+          uid: uid
+        }
+        setUser(data)
+        storageUser(data)
+        toast.success("Bem vindo ao sistema")
+        navigate('/profiles')
+      })
     })
     .catch((error) => {
       toast.warning("Erro ao cadastrar: " + error.message)
@@ -42,11 +51,24 @@ export default function AuthProvider({children}) {
       const docRef = doc(db, "users", uid)
       const docSnap = await getDoc(docRef)
 
+      let data = {
+        uid,
+        nome: value.user.nome,
+        email: value.user.email,
+        telefone: value.user.telefone,
+      }
+      setUser(data)
+      storageUser(data)
+      toast.success("Bem-vindo(a) de volta!")
       navigate('/profiles')
     })
     .catch((error) => {
       toast.warning("Erro ao Fazer o Login: " + error.message)
     })
+  }
+
+  function storageUser(data){
+    localStorage.setItem('@user',JSON.stringify(data))
   }
   
   return (

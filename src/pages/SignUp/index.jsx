@@ -1,4 +1,4 @@
-import { useState, useContext, use } from 'react'
+import { useState, useEffect, useContext, use } from 'react'
 import { Link } from 'react-router-dom'
 import { AuthContext } from '../../Contexts/auth'
 
@@ -13,6 +13,14 @@ export default function SignUp({}) {
   const [password, setPassword] = useState('')
 
   const {user, signUp } = useContext(AuthContext)
+
+  useEffect(() => {
+    const loadUser = () => {
+      console.log("usuario: " + user)
+    }
+
+    loadUser()
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
