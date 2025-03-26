@@ -10,8 +10,23 @@ export const AuthContext = createContext({})
 
 export default function AuthProvider({children}) {
   const [user, setUser] = useState({})
+  const [loading, setLoading] = useState(true)
   const navigate = useNavigate();
 
+  useEffect(() => {
+    async function loadUser(){
+      const storageUser = localStorage.getItem('@user')
+
+      if(storageUser){
+        setUser(JSON.parse(storageUser))
+        setLoading(false)
+        navigate('/profiles')
+      }
+      setLoading(false)
+    }
+
+    loadUser()
+  }, [])
   //cadastro
   async function signUp(email, password, name, tel){
     await createUserWithEmailAndPassword(auth, email, password)
@@ -72,7 +87,9 @@ export default function AuthProvider({children}) {
   }
   
   return (
-    <AuthContext.Provider value={{user, signUp, singIn}}>
+    <AuthContext.Provider value={{signed: !!user, signUp, singIn,
+      loading
+    }}>
       {children}
     </AuthContext.Provider>
   )

@@ -13,10 +13,6 @@ import { Advantage } from '../../services/api_advantage'
 import './inicialPage.style.scss'
 
 export default function InicialPage() {
-  const navigate = useNavigate()
-
-  console.log(Advantage)
-
   return (
     <div>
       <Header />
