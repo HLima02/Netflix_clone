@@ -1,17 +1,28 @@
-import React from 'react'
+import {useState, useContext} from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify';
 
+import { AuthContext } from '../../Contexts/auth'
 import Header from '../../components/Header'
 
 import './signin.style.scss'
 
 export default function SignIn() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
+  const { singIn } = useContext(AuthContext)
 
-  const signIn = async (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault()
 
-    alert('teste')
+    if(email !== '' & password !== ''){
+      await singIn(email, password)
+      toast.success('Login feito')
+    } else {
+      toast.warning('Preencha todos os campos!')
+      return
+    }
   }
 
   return (
@@ -20,9 +31,9 @@ export default function SignIn() {
       <div className='singin_input_box'>
         <h3>Entrar</h3>
 
-        <form onSubmit={(e) => signIn(e)}>
-          <input type='E-mail' placeholder='E-mail ou Telefone' />
-          <input type='password' placeholder='senha' />
+        <form onSubmit={(e) => handleLogin(e)}>
+          <input type='E-mail' placeholder='E-mail ou Telefone' value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type='password' placeholder='senha' value={password} onChange={(e) => setPassword(e.target.value)} />
           <button type='submit'>Entrar</button>
         </form>
 
