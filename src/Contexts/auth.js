@@ -1,7 +1,7 @@
-import { useState, useEffect, createContext } from 'react'
+import { useState, useEffect, createContext, use } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword } from 'firebase/auth'
+  signInWithEmailAndPassword, signOut } from 'firebase/auth'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { auth, db } from '../services/firebaseConfig'
 import { toast } from 'react-toastify';
@@ -27,6 +27,7 @@ export default function AuthProvider({children}) {
 
     loadUser()
   }, [])
+
   //cadastro
   async function signUp(email, password, name, tel){
     await createUserWithEmailAndPassword(auth, email, password)
@@ -85,10 +86,16 @@ export default function AuthProvider({children}) {
   function storageUser(data){
     localStorage.setItem('@user',JSON.stringify(data))
   }
+
+  async function Logout(){
+    await signOut(auth)
+    localStorage.removeItem('@user')
+    setUser(null)
+  }
   
   return (
     <AuthContext.Provider value={{signed: !!user, signUp, singIn,
-      loading
+      loading, Logout
     }}>
       {children}
     </AuthContext.Provider>

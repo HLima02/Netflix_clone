@@ -1,10 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { AuthContext } from '../Contexts/auth'
 import { Navigate } from 'react-router-dom'
 
 export default function Private({ children }) {
   const { signed, loading } = useContext(AuthContext)
-  //const navigate = useNavigate()
+
+  if(!signed) return <Navigate to="/" />
 
   if(loading) {
     return (
@@ -12,5 +13,5 @@ export default function Private({ children }) {
     )
   }
 
-  return signed ? children : <Navigate to="/" />
+  return children
 }
