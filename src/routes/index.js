@@ -6,6 +6,7 @@ import InicialPage from '../pages/InicialPage'
 import SignIn from '../pages/Signin'
 import SignUp from '../pages/SignUp'
 import Profiles from '../pages/Profiles'
+import Home from '../pages/Home'
 
 export default function RoutesApp({children}) {
   return (
@@ -14,6 +15,7 @@ export default function RoutesApp({children}) {
       <Route path='/signin' element={<Private><SignIn/></Private>} />
       <Route path='/signup' element={<Private><SignUp/></Private>} />
       <Route path='/profiles' element={<Private><Profiles/></Private>} />
+      <Route path='/home' element={<Private><Home/></Private>} />
     </Routes>
   )
 }

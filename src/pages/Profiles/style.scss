@@ -1,0 +1,51 @@
+.profile_container {
+  width: 100%;
+  height: 101.5vh;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h1 {
+    color: #fff;
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
+
+  a { color: #BFBFBF; }
+
+  .avatar_section {
+    display: flex;
+    color: #BFBFBF;
+    width: 100%;
+    max-width: 800px;
+    justify-content: center;
+
+    .avatar_item {
+      margin: 10px 5%;
+      min-width: 100px;
+      text-align: center;
+
+      img, svg {
+        max-width: 100px;
+        margin-bottom: 20px;
+      }
+
+      p {
+        font-size: 14px;
+        
+      }
+    }
+  }
+
+  @media only screen and (max-width: 420px){
+    h1 {
+      font-size: 30px;
+    }
+
+    .avatar_section {
+      flex-direction: column;
+    }
+  }
+}

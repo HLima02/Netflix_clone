@@ -39,14 +39,16 @@ export default function AuthProvider({children}) {
         nome: name,
         telefone: tel,
         email: email,
-        uid: uid
+        uid: uid,
+        avatar: null
       })
       .then(() => {
         let data = {
           nome: name,
           telefone: tel,
           email: email,
-          uid: uid
+          uid: uid,
+          avatar: null
         }
         setUser(data)
         storageUser(data)
@@ -69,9 +71,10 @@ export default function AuthProvider({children}) {
 
       let data = {
         uid,
-        nome: value.user.nome,
+        nome: docSnap.data().nome,
         email: value.user.email,
-        telefone: value.user.telefone,
+        telefone: docSnap.data().telefone,
+        avatar: docSnap.data().avatar
       }
       setUser(data)
       storageUser(data)
@@ -94,7 +97,7 @@ export default function AuthProvider({children}) {
   }
   
   return (
-    <AuthContext.Provider value={{signed: !!user, signUp, singIn,
+    <AuthContext.Provider value={{signed: !!user, user, signUp, singIn,
       loading, Logout
     }}>
       {children}
