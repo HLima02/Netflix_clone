@@ -1,0 +1,60 @@
+.movie_row_container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  margin-top: 50px;
+    
+  h1 {
+    font-size: 20px;
+    margin-left: 10px;
+  }
+
+  .carossel_content {
+    position: relative;
+
+    .left_arrow, .right_arrow {
+      position: absolute;
+      height: 100%;
+      width: 40px;
+      z-index: 999;
+      background-color: rgba(0, 0, 0, 0.6);
+      cursor: pointer;
+    }
+
+    .left_arrow {
+      left: 0;
+      top: 0;  
+    }
+
+    .right_arrow {
+      right: 0;
+      top: 0;
+    }
+
+    .carossel_row {
+      width: 100%;
+      overflow: hidden;
+
+      .carossel_cards {
+        display: flex;
+        width: 99999px;
+        overflow: hidden;
+        margin: 0 30px;
+  
+        .card_section {
+          width: 200px;
+  
+          img {
+            transform: scale(0.95);
+            transition: all 0.2s;
+            cursor: pointer;
+  
+            &:hover {
+              transform: scale(1);
+            }
+          }
+        }
+      }
+    }
+  }
+}
