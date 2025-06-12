@@ -100,7 +100,7 @@ export default function AuthProvider({children}) {
   
   return (
     <AuthContext.Provider value={{signed: !!user, user, signUp, singIn,
-      loading, Logout, movieList, setMovieList
+      loading, Logout, movieList, setMovieList, featuredMovie, setFeaturedMovie
     }}>
       {children}
     </AuthContext.Provider>
