@@ -13,7 +13,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true)
   const [movieList, setMovieList] = useState([])
   const [featuredMovie, setFeaturedMovie] = useState(null)
-  const [sign, setSign] = useState(null)
+  const [sign, setSign] = useState(false)
   const navigate = useNavigate();
 
   useEffect(() => {

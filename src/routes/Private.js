@@ -3,9 +3,12 @@ import { AuthContext } from '../Contexts/auth'
 import { Navigate } from 'react-router-dom'
 
 export default function Private({ children }) {
-  const { signed, loading } = useContext(AuthContext)
+  const { signed, loading, sign } = useContext(AuthContext)
+  console.log('sign', signed)
 
-  if(!signed) return <Navigate to="/" />
+  if(!signed) {
+    return <Navigate to="/" />
+  }
 
   if(loading) {
     return (

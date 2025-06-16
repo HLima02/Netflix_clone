@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 
 import { AuthContext } from '../../Contexts/auth'
 import logo from '../../assets/Logo.png'
@@ -14,10 +14,12 @@ export default function Header() {
   return (
     <header className='header__container'>
       <div>
-        <img src={logo} alt='Logo Netflix'/>
+        <Link to="/">
+          <img src={logo} alt='Logo Netflix'/>
+        </Link>
       </div>
 
-      {sign !== null ? (
+      {sign ? (
         <div>
           <button onClick={() => Logout()}>Sair</button>
         </div>
