@@ -13,6 +13,7 @@ export default function AuthProvider({children}) {
   const [loading, setLoading] = useState(true)
   const [movieList, setMovieList] = useState([])
   const [featuredMovie, setFeaturedMovie] = useState(null)
+  const [sign, setSign] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,6 +22,7 @@ export default function AuthProvider({children}) {
 
       if(storageUser){
         setUser(JSON.parse(storageUser))
+        setSign(true)
         setLoading(false)
         navigate('/profiles')
       }
@@ -53,6 +55,7 @@ export default function AuthProvider({children}) {
           avatar: null
         }
         setUser(data)
+        setSign(true)
         storageUser(data)
         toast.success("Bem vindo ao sistema")
         navigate('/profiles')
@@ -80,6 +83,7 @@ export default function AuthProvider({children}) {
       }
       setUser(data)
       storageUser(data)
+      setSign(true)
       toast.success("Bem-vindo(a) de volta!")
       navigate('/profiles')
     })
@@ -91,16 +95,18 @@ export default function AuthProvider({children}) {
   function storageUser(data){
     localStorage.setItem('@user',JSON.stringify(data))
   }
-
+  //Logout
   async function Logout(){
     await signOut(auth)
     localStorage.removeItem('@user')
     setUser(null)
+    setSign(false)
+    navigate('/')
   }
   
   return (
     <AuthContext.Provider value={{signed: !!user, user, signUp, singIn,
-      loading, Logout, movieList, setMovieList, featuredMovie, setFeaturedMovie
+      loading, Logout, movieList, setMovieList, featuredMovie, setFeaturedMovie, sign
     }}>
       {children}
     </AuthContext.Provider>

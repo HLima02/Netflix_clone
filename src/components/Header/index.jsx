@@ -6,21 +6,32 @@ import logo from '../../assets/Logo.png'
 import './header.style.scss'
 
 export default function Header() {
-  const { signed } = useContext(AuthContext)
-  console.log(signed)
+  const { signed, sign, Logout } = useContext(AuthContext)
+  console.log('Logados: ', signed)
 
   const navigate = useNavigate()
+
   return (
     <header className='header__container'>
       <div>
         <img src={logo} alt='Logo Netflix'/>
       </div>
 
-      {!signed &&
+      {sign !== null ? (
+        <div>
+          <button onClick={() => Logout()}>Sair</button>
+        </div>
+      ) : (
+        <div>
+          <button onClick={() => navigate('/signin')}>Entrar</button>
+        </div>
+      )}
+
+      {/* {!signed &&
          <div>
           <button onClick={() => navigate('/signin')}>Entrar</button>
         </div>
-      }
+      } */}
     </header>
   )
 }

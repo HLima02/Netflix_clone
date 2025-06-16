@@ -1,6 +1,5 @@
 import React from 'react'
 
-
 import './AdvantagesInitialPage.style.scss'
 
 export default function AdvantagesInitialPage({textSide, title, subTitle, image}) {
