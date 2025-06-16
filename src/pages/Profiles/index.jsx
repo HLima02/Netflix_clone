@@ -9,7 +9,7 @@ import avatar from '../../assets/avatar/avatar_01.png'
 
 export default function Profiles() {
   const { user } = useContext(AuthContext)
-  //console.log("usuário: ", user)
+  
   return (
     <div className='profile_container'>
       <h1>Quem esta assistindo?</h1>
