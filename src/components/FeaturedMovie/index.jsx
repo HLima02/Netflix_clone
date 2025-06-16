@@ -22,18 +22,20 @@ export default function FeaturedMovie() {
     <div className='featured_container' style={{backgroundImage: `url(https://image.tmdb.org/t/p/original/${featuredMovie.backdrop_path})`}}>
       <div className='bg_vertical'>
         <div className="bg_horizontal">
-          <h1 className="name">{featuredMovie.name}</h1>
-          <div className="movie_infos">
-             <span className="points">{featuredMovie.vote_average} pontos</span>
-            <span>{firstDate.getFullYear()}</span>
-            <span>{featuredMovie.number_of_seasons} temporada{featuredMovie.number_of_seasons !== 1 ? 's' : ''}</span>
+          <div className='featured_content'>
+            <h1 className="name">{featuredMovie.name}</h1>
+            <div className="movie_infos">
+              <span className="points">{featuredMovie.vote_average} pontos</span>
+              <span>{firstDate.getFullYear()}</span>
+              <span>{featuredMovie.number_of_seasons} temporada{featuredMovie.number_of_seasons !== 1 ? 's' : ''}</span>
+            </div>
+            <div className="desciption">{description}</div>
+            <div className="movie_btn">
+              <a href="#" className="watch">&#9658;Assistir</a>
+              <a href="#" className="my-list">+ Minha lista</a>
+            </div>
+            <div className="genres"><strong>Gêneros: </strong>{genres.join(', ')}</div>
           </div>
-          <div className="desciption">{description}</div>
-          <div className="movie_btn">
-            <a href="#" className="watch">&#9658;Assistir</a>
-            <a href="#" className="my-list">+ Minha lista</a>
-          </div>
-          <div className="genres"><strong>Gêneros: </strong>{genres.join(', ')}</div>
         </div>
       </div>
     </div>
